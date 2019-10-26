@@ -54,7 +54,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email shawry@shawry.com --agree-tos --no-eff-email --staging -d sustainablekingvalley.com -d www.sustainablekingvalley.com
+    command: certonly --webroot --webroot-path=/var/www/html --email shawry@shawry.com --agree-tos --no-eff-email --staging -d sustainablekingvalley.com -d www.sustainablekingvalley.com -d www.sustainablekingvalley.org  -d sustainablekingvalley.org
 
 volumes:
   certbot-etc:
