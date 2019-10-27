@@ -39,6 +39,7 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - wordpress:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
@@ -54,7 +55,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email shawry@shawry.com --agree-tos --no-eff-email --staging -d sustainablekingvalley.com -d www.sustainablekingvalley.com -d www.sustainablekingvalley.org  -d sustainablekingvalley.org
+    command: certonly --webroot --webroot-path=/var/www/html --email shawry@shawry.com --agree-tos --no-eff-email --force-renewal -d sustainablekingvalley.com -d www.sustainablekingvalley.com  -d sustainablekingvalley.org -d www.sustainablekingvalley.com
 
 volumes:
   certbot-etc:
@@ -63,4 +64,4 @@ volumes:
 
 networks:
   app-network:
-    driver: bridge  
+    driver: bridge
